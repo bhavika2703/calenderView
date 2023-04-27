@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 void main() {
   return runApp(CalendarApp());
@@ -48,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             headerText(),
-             Align(
+            Align(
               alignment: Alignment.bottomRight,
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
@@ -60,16 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 10,
                       width: 10,
                       decoration: const BoxDecoration(
-                        color:Color(0xFF5A297C),
+                        color: Color(0xFF5A297C),
                         shape: BoxShape.circle,
                       ),
                     ),
                     const Text(
                       '퀴즈완료',
-                      style: TextStyle(
-                          color: Color(0xFF5A297C),
-                          fontSize: 12
-                      ),
+                      style: TextStyle(color: Color(0xFF5A297C), fontSize: 12),
                     ),
                   ],
                 ),
@@ -95,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 shape: BoxShape.circle,
               ),
               monthViewSettings: const MonthViewSettings(
-                  monthCellStyle: MonthCellStyle(
-                      todayBackgroundColor: Color(0xFF5A297C))),
+                  monthCellStyle:
+                      MonthCellStyle(todayBackgroundColor: Color(0xFF5A297C))),
               dataSource: MeetingDataSource(_getDataSource()),
             ),
             const Divider(color: Color(0xFFF0F0F1), thickness: 5),
@@ -106,38 +102,38 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Text(
-                    '나의 레벨',
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0,top: 2,bottom: 4),
+                    child: Text(
+                      '나의 레벨',
+                       style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 20, bottom: 12),
                     child: const Center(
                       child: Text(
                         '앞으로 4번의 Level UP 남았어요!',
-                        style: TextStyle(
-                            color: Color(0xFF5A297C), fontSize: 17),
+                        style:
+                            TextStyle(color: Color(0xFF5A297C), fontSize: 17,fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
                   Stack(
                     children: [
                       Align(
-                        alignment: Alignment.lerp(
-                            Alignment.bottomLeft,
-                            Alignment.bottomRight,
-                            0.20) as AlignmentGeometry,
+                        alignment: Alignment.lerp(Alignment.bottomLeft,
+                            Alignment.bottomRight, 0.20) as AlignmentGeometry,
                         child: Container(
-                            height: 80,
-                            width: 90,
+                            height: 74,
+                            width: 80,
                             child: Image.asset('assets/img.png')),
                       ),
                       Align(
-                          alignment: Alignment.lerp(
-                              Alignment.bottomLeft,
-                              Alignment.bottomRight,
-                              0.20) as AlignmentGeometry,
+                          alignment: Alignment.lerp(Alignment.bottomLeft,
+                              Alignment.bottomRight, 0.20) as AlignmentGeometry,
                           child: const Padding(
-                            padding: EdgeInsets.only(top: 34, left: 10),
+                            padding: EdgeInsets.only(top: 30, left: 10),
                             child: Text(
                               'Level. 1',
                               textAlign: TextAlign.left,
@@ -146,8 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontFamily: 'Spoqa Han Sans Neo',
                                   fontSize: 14,
                                   letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
+                                  fontWeight: FontWeight.w500),
                             ),
                           )),
                       Container(
@@ -155,8 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(40.0))),
                         child: const ClipRRect(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10)),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: LinearProgressIndicator(
                             value: 0.27,
                             minHeight: 15,
@@ -167,8 +161,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   ),
-                  const Text('정답률',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0,top: 2,bottom: 6),
+                    child: Text('정답률',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(
@@ -177,11 +174,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 1.0,
                       ),
                       color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     margin: const EdgeInsets.all(8),
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(14.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -193,18 +190,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                 const Text(
                                   '전달 정답률 : 87%',
                                   style: TextStyle(
-                                      color: Color(0xFFACACAF),
-                                      fontSize: 14),
+                                      color: Color(0xFFACACAF), fontSize: 14),
                                 ),
                                 const Text('이번달 정답률은?',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold)),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Row(
                                     children: const [
                                       Text('완료한 퀴즈',
                                           style: TextStyle(fontSize: 12)),
+                                      SizedBox(width: 5),
                                       Text('총 12번',
                                           style: TextStyle(
                                               color: Color(0xFFCD3E94),
@@ -216,19 +213,22 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           Flexible(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: const [
-                                Text('한달기준',
-                                    style: TextStyle(
-                                        color: Color(0xFFACACAF),
-                                        fontSize: 12)),
-                                Text('90%',
-                                    style: TextStyle(
-                                        color: Color(0xFF5A297C),
-                                        fontSize: 40)),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 14),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: const [
+                                  Text('한달기준',
+                                      style: TextStyle(
+                                          color: Color(0xFFACACAF),
+                                          fontSize: 12)),
+                                  Text('90%',
+                                      style: TextStyle(
+                                          color: Color.fromRGBO(90, 41, 124, 1),
+                                          fontSize: 40)),
+                                ],
+                              ),
                             ),
                           )
                         ],
@@ -241,21 +241,21 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         bottomNavigationBar: Container(
-        height: 60,
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(width: 1.0, color: Colors.grey.shade200),
+          height: 60,
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(width: 1.0, color: Colors.grey.shade200),
+            ),
           ),
-    ),
-     child: Row(
-       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-       children: [
-         Image.asset('assets/home.png'),
-         Image.asset('assets/message.png'),
-         Image.asset('assets/img3.png'),
-         Image.asset('assets/person.png'),
-       ],
-     ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/home.png'),
+              Image.asset('assets/message.png'),
+              Image.asset('assets/img3.png'),
+              Image.asset('assets/person.png'),
+            ],
+          ),
         ),
       ),
     );
@@ -263,18 +263,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Align headerText() {
     return const Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 12,right: 12,top: 6),
-              child: Text(
-                '진도',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),
-              ),
-            ),
-          );
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: EdgeInsets.only(left: 12, right: 12, top: 6),
+        child: Text(
+          '진도',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+      ),
+    );
   }
 
   List<Meeting> _getDataSource() {
