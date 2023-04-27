@@ -47,23 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 12,right: 12,top: 6),
-                child: Text(
-                  '진도',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
-                  ),
-                ),
-              ),
-            ),
+            headerText(),
              Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: EdgeInsets.only(right: 8.0),
+                padding: const EdgeInsets.only(right: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -71,12 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.only(right: 4),
                       height: 10,
                       width: 10,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
+                      decoration: const BoxDecoration(
+                        color:Color(0xFF5A297C),
                         shape: BoxShape.circle,
                       ),
                     ),
-                    Text(
+                    const Text(
                       '퀴즈완료',
                       style: TextStyle(
                           color: Color(0xFF5A297C),
@@ -253,35 +241,40 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         bottomNavigationBar: Container(
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset('assets/menu_1.svg'),
-                  activeIcon: SvgPicture.asset('assets/menu_1.svg'),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset('assets/menu_2.svg'),
-                  activeIcon: SvgPicture.asset('assets/menu_2.svg'),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset('assets/menu_3.svg'),
-                  activeIcon: SvgPicture.asset('assets/menu_3.svg'),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset('assets/menu_4.svg'),
-                  activeIcon: SvgPicture.asset('assets/menu_4.svg'),
-                  label: ""),
-            ],
-            currentIndex: 1,
-            onTap: (index) {},
+        height: 60,
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(width: 1.0, color: Colors.grey.shade200),
           ),
-          decoration: const BoxDecoration(
-              color: Color(0xFFF3F6FE),
-              border: Border(top: BorderSide(color: Colors.white70))),
+    ),
+     child: Row(
+       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+       children: [
+         Image.asset('assets/home.png'),
+         Image.asset('assets/message.png'),
+         Image.asset('assets/img3.png'),
+         Image.asset('assets/person.png'),
+       ],
+     ),
         ),
       ),
     );
+  }
+
+  Align headerText() {
+    return const Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 12,right: 12,top: 6),
+              child: Text(
+                '진도',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+                ),
+              ),
+            ),
+          );
   }
 
   List<Meeting> _getDataSource() {
